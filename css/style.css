@@ -1,0 +1,359 @@
+/* ================================================= */
+/* ================= RESET ========================= */
+/* ================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* ================================================= */
+/* ================= HEADER ======================== */
+/* ================================================= */
+
+.header {
+  background: #000;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 70px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 40px;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo img {
+  height: 30px;
+}
+
+/* BOTÕES HEADER (menu, busca, carrinho) */
+
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 70%;
+  height: calc(100vh - 70px);
+  background: #000000;
+}
+
+
+
+.menu-toggle,
+.search-btn,
+.cart-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cart-count {
+  color: rgb(196, 193, 193);
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+/* remove fundo ao clicar */
+.menu-toggle:focus,
+.search-btn:focus,
+.cart-btn:focus {
+  outline: none;
+}
+
+.menu.active {
+  display: block;
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu ul li a,
+.submenu-toggle {
+  display: block;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+  background: #000;
+  border: none;
+}
+
+.submenu {
+  display: none;
+}
+
+.submenu.active {
+  display: block;
+}
+
+/* ================================================= */
+/* ================= BANNER ======================== */
+/* ================================================= */
+
+.banner {
+  margin-top: 75px; /* compensa header fixo */
+}
+
+.banner img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+}
+
+ .banner-text {
+  background: #f1eded;
+  color: #000000;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.banner-text h2 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.banner-text p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+
+/* ================================================= */
+/* ================= PRODUTOS GRID ================= */
+/* ================================================= */
+
+.products {
+  padding: 60px 40px;
+}
+
+.products-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.product-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.product-name {
+  margin: 15px 0 5px;
+}
+
+.product-price {
+
+  margin-bottom: 15px;
+}
+
+.buy-btn {
+  padding: 10px 30px;
+  border: none;
+  background: #ebe6e6;
+  color: #000000;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* ================================================= */
+/* ================= PRODUTOS PAGE ================== */
+/* ================================================= */
+
+.product-page {
+  padding: 120px 40px 60px;
+}
+
+.product-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.product-gallery,
+.product-details {
+  flex: 1 1 400px;
+}
+
+.product-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  margin: 15px 0;
+  color: #555;
+}
+
+
+/* ================================================= */
+/* ================= INSTAGRAM ======================== */
+/* ================================================= */
+
+
+.instagram {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+
+.insta-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.instagram h2 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.instagram p {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.insta-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.insta-grid img:hover {
+  transform: scale(1.05);
+}
+
+.insta-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #b32051;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.insta-btn:hover {
+  background: #c8235c;
+}
+
+
+/* ================================================= */
+/* ================= FOOTER ======================== */
+/* ================================================= */
+
+/* ================= FOOTER ================= */
+
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 60px 40px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.footer-col p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+}
+
+.footer img {
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #222;
+  font-size: 13px;
+  color: #777;
+}

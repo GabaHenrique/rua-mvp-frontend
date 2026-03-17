@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produto Unico - Rua Bike Shop</title>
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/produto.css">
+  
+</head>
+<body>
+
+<!-- HEADER -->
+ <header class="header">
+  <div class="container">
+<div class="left">  
+
+    <button class="menu-toggle" id="menu-toggle"> ☰ </button>
+<div class="logo"> 
+    <img src="assets/imagens/Logo transparente - Cópia.png" alt="Logo"></div>    
+</div>
+
+<div class="right">
+<div class="search-wrapper">
+      <button class="search-btn">🔍</button>
+
+</div>
+    <button class="cart-btn">
+  🛒 <span class="cart-count">0</span>
+</button>
+  
+  <nav class="menu" id="menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li class="has-submenu">
+      <button class="submenu-toggle">
+        Produtos ▾
+      </button>
+
+      <ul class="submenu">
+        <li><a href="#">Bikes Completas</a></li>
+        <li><a href="#">Bancos</a></li>
+        <li><a href="#">Cubos</a></li>
+        <li><a href="#">Manoplas</a></li>
+        <li><a href="#">Pedais</a></li>
+        <li><a href="#">Quadros</a></li>
+     
+      </ul>
+    </li>
+      <li><a href="carrinho.html">Carrinho</a></li></ul></nav>
+     
+      <div class="header-icons">
+         </div>   </header>
+        </div>
+
+  <!-- BANNER INTERNO -->
+  <section class="banner">
+  
+  <div class="slider">
+
+    <div class="slide">
+      <img src="assets/imagens/produtos/bsd-banner-bikecheck-joefoley-003-jan2025_1900x.webp" alt="Produto 1">
+    </div> </section>
+
+    <section class="banner-text">
+  <h2>FRETE GRÁTIS PARA TODO O BRASIL </h2>
+  <p>Parcele suas compras em até 12x</p>
+</section>
+
+<!---------------IDEIA DE PRODUTO UNICO------------------>
+ 
+<section class="product-page">
+  <div class="product-layout">
+
+    <!-- GALERIA -->
+    <div class="product-gallery">
+
+      <div class="main-image">
+        <img id="mainProductImage" src="assets/imagens/produtos/cultbike.webp" alt="BMX">
+      </div>
+
+      <div class="thumb-images">
+        <img src="assets/imagens/produtos/bike sunday.jpeg" onclick="changeImage(this)">
+        <img src="assets/imagens/produtos/wtpbike.jpg" onclick="changeImage(this)">
+        <img src="assets/imagens/produtos/cultbike.webp" onclick="changeImage(this)">
+      </div>
+
+    </div>
+
+    <!-- DETALHES -->
+    <div class="product-details">
+
+      <h1 class="product-title">BMX Sunday Street Sweeper PRO</h1>
+
+      <p class="product-price">R$ 2.499,90</p>
+
+      <ul class="product-highlights">
+        <li> Quadro em cromoly</li>
+        <li> Freio U-Brake</li>
+        <li> Peso aproximado: 11kg</li>
+        <li> Garantia de 3 meses</li>
+      </ul>
+
+      <p class="product-description">
+        A Sunday Street Sweeper PRO é ideal para quem busca desempenho,
+        resistência e estilo no BMX street.
+         A Sunday Street Sweeper PRO é ideal para quem busca desempenho,
+        resistência e estilo no BMX street.
+      </p>
+
+      <button class="buy-btn" data-id="1">COMPRAR</button>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!---------------FIM PRODUTO UNICO ------------------>
+
+
+
+
+ 
+
+
+
+<!-- BANNER DE DESCONTOS  -->
+  
+
+  <footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Coluna 1 -->
+    <div class="footer-col logo-col">
+      <img src="assets/imagens/rualogo 2026.PNG" alt="Logo Rua">
+    </div>
+
+    <!-- Coluna 2 -->
+    <div class="footer-col">
+      <h3>MAPA DO SITE</h3>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Loja</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3 -->
+    <div class="footer-col">
+      <h3>POLÍTICAS</h3>
+      <ul>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Política de Entrega</a></li>
+        <li><a href="#">Política de Pagamento</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 4 -->
+    <div class="footer-col payment-col">
+      <h3>FORMAS DE PAGAMENTO</h3>
+      <div class="payments">
+             <img src="assets/imagens/mercadopago.png" alt="mercadopago">
+           </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Rua Bike Shop - Todos os direitos reservados</p>
+  </div>
+
+</footer>
+      <!-- SCRIPT SEMPRE AQUI EMBAIXO -->
+      <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+
+  menuToggle.addEventListener("click", function () {
+    menu.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".submenu-toggle").forEach(button => {
+    button.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const submenu = this.nextElementSibling;
+      submenu.classList.toggle("active");
+    });
+  });
+
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const mainImage = document.getElementById("mainProductImage");
+  const thumbs = document.querySelectorAll(".thumb");
+
+  thumbs.forEach(img => {
+    img.addEventListener("click", function () {
+      mainImage.src = this.src;
+    });
+  });
+
+});
+</script>
+</script>
+</script>
+
+</script>
+</body> 
+</html>
+
