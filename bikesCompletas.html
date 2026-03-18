@@ -65,49 +65,16 @@
   <p>Parcele suas compras em até 12x</p>
 </section>
 
-    <!-----PRODUTOOOS-->
+    <!-- PRODUTOS -->
+
 <section class="products">
   <div class="products-grid">
-
-    <div class="product-card">
-      <div class="product-image">
-        <img src="assets/imagens/produtos/cultbike.webp" alt="Produto 1">
-      </div>
-
-      <h3 class="product-name">BMX Cult Crew</h3>
-      <p class="product-price">R$ 2.499,90</p>
-      <button class="buy-btn" data-id="2">Comprar</button>
-</div>
-    <div class="product-card">
-      <div class="product-image">
-        <img src="assets/imagens/produtos/eclat .webp" alt="Produto 2">
-      </div>
-
-      <h3 class="product-name">Aro Odyssey Hazard</h3>
-      <p class="product-price">R$ 349,90</p>
-      <button class="buy-btn" data-id="3">Comprar</button>
-    </div>
-    <div class="product-card">
-      <div class="product-image">
-        <img src="assets/imagens/produtos/fiend reynolds.webp" alt="Produto 2">
-      </div>
-
-      <h3 class="product-name">Aro Odyssey Hazard</h3>
-      <p class="product-price">R$ 349,90</p>
-      <button class="buy-btn" data-id="4">Comprar</button>
-    </div>
-
-
+    <!-- JS VAI INSERIR OS PRODUTOS AQUI -->
   </div>
 </section>
 
-
-
-
-<!-- BANNER DE DESCONTOS  -->
-  
-
-  <footer class="footer">
+<!-- FOOTER -->
+<footer class="footer">
 
   <div class="footer-container">
 
@@ -153,14 +120,88 @@
 
 </footer>
 
+<!-- SCRIPTS -->
+<!-- SEU JS PRINCIPAL (menu etc) -->
+<script src="js/javascript.js"></script>
 
-      <!-- SCRIPT SEMPRE AQUI EMBAIXO -->
-
-
-
+<!-- NOVO ARQUIVO DE PRODUTOS -->
 <script src="js/products.js"></script>
-<script src="js/carrinho.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/buy.js"></script>
+
+<!-- SCRIPT DA PÁGINA -->
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu");
+
+  menuToggle.addEventListener("click", function () {
+    menu.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".submenu-toggle").forEach(button => {
+    button.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const submenu = this.nextElementSibling;
+      submenu.classList.toggle("active");
+    });
+  });
+
+});
+
+  
+  document.addEventListener("DOMContentLoaded", async function () {
+
+  
+
+  const container = document.querySelector(".products-grid");
+
+  console.log(container);
+
+  try {
+    const response = await fetch("http://localhost:4000/products?category=bikecompleta");
+
+    const products = await response.json();
+
+    console.log("PRODUTOS:", products);
+
+    container.innerHTML = products.map(product => {
+
+  const image = product.image 
+    ? `assets/imagens/produtos/${product.image}` 
+    : `assets/imagens/produtos/cubocult.webp`;
+
+  return `
+    
+    <a href="produtoUnico.html?id=${product.id}" class="product-card">
+
+      <div class="product-image">
+        <img src="${image}" alt="${product.name}">
+      </div>
+
+      <h3 class="product-name">${product.name}</h3>
+
+      <p class="product-price">
+        ${Number(product.price).toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL"
+        })}
+      </p>
+
+    </a>
+
+  `;
+
+}).join('');
+
+  } catch (error) {
+    console.error("Erro:", error);
+  }
+
+});
+</script>
+
+<script src="js/javascript.js"></script>
+<script src="js/products.js"></script>
+
 </body>
-</html>

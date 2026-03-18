@@ -1,4 +1,61 @@
-/* ================= PRODUCT PAGE ================= */
+/* ================= PRODUTOS (LISTAGEM) ================= */
+
+/* GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* CARD */
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #000;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* IMAGEM */
+.product-image {
+  width: 100%;
+  height: 200px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* NOME */
+.product-name {
+  font-size: 16px;
+  margin: 10px;
+  font-weight: 600;
+}
+
+/* PREÇO (LISTAGEM) */
+.product-card .product-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
+  color: #2ecc71;
+}
+
+
+/* ================= PRODUTO ÚNICO ================= */
 
 .product-page {
   padding: 80px 40px;
@@ -14,14 +71,12 @@
   flex-wrap: wrap;
 }
 
-/* ===== GALERIA ===== */
-
+/* GALERIA */
 .product-gallery {
   flex: 1 1 500px;
 }
 
 .main-image img {
-  
   border-radius: 12px;
   object-fit: contain;
 }
@@ -47,8 +102,7 @@
   border: 2px solid #000;
 }
 
-/* ===== DETALHES ===== */
-
+/* DETALHES */
 .product-details {
   flex: 1 1 400px;
 }
@@ -58,7 +112,8 @@
   margin-bottom: 20px;
 }
 
-.product-price {
+/* PREÇO (PÁGINA ÚNICA) */
+.product-details .product-price {
   font-size: 28px;
   color: #1a1919;
   margin-bottom: 25px;
@@ -80,9 +135,10 @@
   color: #555;
 }
 
+/* BOTÃO */
 .buy-btn {
   background: #dbd7d7;
-  color: #000000;
+  color: #000;
   padding: 15px 40px;
   border: none;
   border-radius: 8px;

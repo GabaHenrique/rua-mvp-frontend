@@ -82,6 +82,7 @@ body {
 }
 
 /* remove fundo ao clicar */
+
 .menu-toggle:focus,
 .search-btn:focus,
 .cart-btn:focus {
@@ -159,7 +160,8 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+ text-align: center;
+ padding: 20px;
 }
 
 .product-card {

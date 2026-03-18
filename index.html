@@ -66,55 +66,10 @@
     <p>Parcele suas compras em até 12x</p>
   </section>
  
+  <!-- PRODUTOS -->
+
 <section class="products">
-  <div class="products-grid">
-
-    <div class="product-card">
-      <div class="product-image">
-        <img src="assets/imagens/produtos/cultbike.webp" alt="Produto 1">
-      </div>
-
-      <h3 class="product-name">BMX Sunday Street Sweeper PRO</h3>
-      <p class="product-price">R$ 2.499,90</p>
-      <button class="buy-btn">Comprar</button>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image">
-        <img src="assets/imagens/produtos/wtpbike.jpg" alt="Produto 1">
-      </div>
-
-      <h3 class="product-name">BMX Sunday Street Sweeper PRO</h3>
-      <p class="product-price">R$ 2.499,90</p>
-      <button class="buy-btn">Comprar</button>
-    </div>
-
-
-    <div class="product-card">
-      <div class="product-image">
-        <img src="assets/imagens/produtos/odysseyross.jpg" alt="Produto 1">
-      </div>
-
-      <h3 class="product-name">BMX Sunday Street Sweeper PRO</h3>
-      <p class="product-price">R$ 2.499,90</p>
-      <button class="buy-btn">Comprar</button>
-    </div>
-
-
-    <div class="product-card">
-      <div class="product-image">
-        <img src="assets/imagens/produtos/bike sunday.jpeg" alt="Produto 1">
-      </div>
-
-      <h3 class="product-name">BMX Sunday Street Sweeper PRO</h3>
-      <p class="product-price">R$ 2.499,90</p>
-      <button class="buy-btn">Comprar</button>
-    </div>
-
-
-        
-  </div>
-</section>
+  <div class="products-grid"> </section>
 
 
 
@@ -189,9 +144,17 @@
   </div>
 
 </footer>
-      <!-- SCRIPT SEMPRE AQUI EMBAIXO -->
-      <script>
-document.addEventListener("DOMContentLoaded", function () {
+      <!-- SCRIPTS -->
+<!-- SEU JS PRINCIPAL (menu etc) -->
+<script src="js/javascript.js"></script>
+
+<!-- NOVO ARQUIVO DE PRODUTOS -->
+<script src="js/products.js"></script>
+
+<!-- SCRIPT DA PÁGINA -->
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
 
   const menuToggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu");
@@ -210,7 +173,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-</script>
-</body> 
-</html>
+  
+  document.addEventListener("DOMContentLoaded", async function () {
 
+  
+
+  const container = document.querySelector(".products-grid");
+
+  console.log(container);
+
+  try {
+    const response = await fetch("http://localhost:4000/products?category=banco,quadro,pedal");
+
+    const products = await response.json();
+
+    console.log("PRODUTOS:", products);
+
+    container.innerHTML = products.map(product => {
+
+  const image = product.image 
+    ? `assets/imagens/produtos/${product.image}` 
+    : `assets/imagens/produtos/cubocult.webp`;
+
+  return `
+    
+    <a href="produtoUnico.html?id=${product.id}" class="product-card">
+
+      <div class="product-image">
+        <img src="${image}" alt="${product.name}">
+      </div>
+
+      <h3 class="product-name">${product.name}</h3>
+
+      <p class="product-price">
+        ${Number(product.price).toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL"
+        })}
+      </p>
+
+    </a>
+
+  `;
+
+}).join('');
+
+  } catch (error) {
+    console.error("Erro:", error);
+  }
+
+});
+</script>
+
+<script src="js/javascript.js"></script>
+<script src="js/products.js"></script>
+
+</body>
