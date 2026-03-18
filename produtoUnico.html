@@ -18,10 +18,10 @@
     <div class="left">  
       <button class="menu-toggle" id="menu-toggle"> ☰ </button>
 
-      <div class="logo"> 
-        <img src="assets/imagens/Logo transparente - Cópia.png" alt="Logo">
-      </div>    
-    </div>
+      <div class="logo"> <a href="index.html">
+    <img src="assets/imagens/Logo transparente - Cópia.png" alt="Logo"></div>    
+</div></a>
+
 
     <div class="right">
       <div class="search-wrapper">
@@ -39,14 +39,15 @@
             <button class="submenu-toggle">Produtos ▾</button>
 
             <ul class="submenu">
-              <li><a href="#">Bikes Completas</a></li>
-              <li><a href="#">Bancos</a></li>
-              <li><a href="#">Cubos</a></li>
-              <li><a href="#">Manoplas</a></li>
-              <li><a href="#">Pedais</a></li>
-              <li><a href="#">Quadros</a></li>
-            </ul>
-          </li>
+       <li><a href="bikesCompletas.html">Bikes Completas</a></li>
+        <li><a href="bancos.html">Bancos</a></li>
+        <li><a href="cubos.html">Cubos</a></li>
+        <li><a href="manoplas.html">Manoplas</a></li>
+        <li><a href="pedais.html">Pedais</a></li>
+        <li><a href="quadros.html">Quadros</a></li>
+     
+      </ul>
+    </li>
           <li><a href="carrinho.html">Carrinho</a></li>
         </ul>
       </nav>
@@ -90,32 +91,49 @@
 
 <!-- FOOTER -->
 <footer class="footer">
+
   <div class="footer-container">
 
+    <!-- Coluna 1 -->
     <div class="footer-col logo-col">
-      <img src="assets/imagens/rualogo 2026.PNG">
+      <img src="assets/imagens/rualogo 2026.PNG" alt="Logo Rua">
     </div>
 
+    <!-- Coluna 2 -->
     <div class="footer-col">
       <h3>MAPA DO SITE</h3>
       <ul>
         <li><a href="#">Início</a></li>
         <li><a href="#">Loja</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
       </ul>
     </div>
 
+    <!-- Coluna 3 -->
     <div class="footer-col">
       <h3>POLÍTICAS</h3>
       <ul>
-        <li><a href="#">Privacidade</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Política de Entrega</a></li>
+        <li><a href="#">Política de Pagamento</a></li>
       </ul>
+    </div>
+
+    <!-- Coluna 4 -->
+    <div class="footer-col payment-col">
+      <h3>FORMAS DE PAGAMENTO</h3>
+      <div class="payments">
+             <img src="assets/imagens/mercadopago.png" alt="mercadopago">
+           </div>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 Rua Bike Shop</p>
+    <p>© 2026 Rua Bike Shop - Todos os direitos reservados</p>
   </div>
+
 </footer>
 
 <!-- SCRIPT -->
@@ -145,8 +163,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
-
 document.addEventListener("DOMContentLoaded", async function () {
 
   const params = new URLSearchParams(window.location.search);
@@ -170,11 +186,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     container.innerHTML = `
       <h1 class="product-title">${product.name}</h1>
 
+      
+      <p>${product.description || "Sem descrição"}</p>
+
       <p class="product-price">
         R$ ${Number(product.price).toFixed(2)}
       </p>
 
-      <p>${product.description || "Sem descrição"}</p>
 
       <button class="buy-btn">
         COMPRAR

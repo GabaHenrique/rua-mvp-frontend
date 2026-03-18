@@ -148,15 +148,13 @@
   
   document.addEventListener("DOMContentLoaded", async function () {
 
-  console.log("SCRIPT RODOU");
-
+  
   const container = document.querySelector(".products-grid");
 
   console.log(container);
 
   try {
     const response = await fetch("http://localhost:4000/products?category=cubo");
-
     const products = await response.json();
 
     console.log("PRODUTOS:", products);
@@ -177,16 +175,21 @@
 
       <h3 class="product-name">${product.name}</h3>
 
+     
       <p class="product-price">
         ${Number(product.price).toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL"
         })}
+        
       </p>
-
+<button class="buy-btn">
+        COMPRAR
+      </button>
     </a>
-
   `;
+
+  
 
 }).join('');
 

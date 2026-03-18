@@ -183,7 +183,7 @@
   console.log(container);
 
   try {
-    const response = await fetch("http://localhost:4000/products?category=banco,quadro,pedal");
+    const response = await fetch("http://localhost:4000/products?category=banco");
 
     const products = await response.json();
 
@@ -211,7 +211,11 @@
           currency: "BRL"
         })}
       </p>
-
+      </button>
+</p>
+<button class="buy-btn">
+        COMPRAR
+      </button>
     </a>
 
   `;
