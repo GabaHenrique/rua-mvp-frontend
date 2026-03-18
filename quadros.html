@@ -172,9 +172,8 @@
     : `assets/imagens/produtos/cubocult.webp`;
 
   return `
-    
-    <a href="produtoUnico.html?id=${product.id}" class="product-card">
-
+    <div class="product-card">
+    <a href="produtoUnico.html?id=${product.id}" class="product-link">
       <div class="product-image">
         <img src="${image}" alt="${product.name}">
       </div>
@@ -187,11 +186,13 @@
           currency: "BRL"
         })}
       </p>
-<button class="buy-btn">
-        COMPRAR
-      </button>
     </a>
 
+    <button class="buy-btn" data-id="${product.id}">
+      Comprar
+    </button>
+
+  </div>
   `;
 
 }).join('');

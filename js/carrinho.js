@@ -1,29 +1,3 @@
-function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart) {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function addToCart(product) {
-  let cart = getCart();
-
-  const existingProduct = cart.find(item => item.id === product.id);
-
-  if (existingProduct) {
-    existingProduct.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-
-  saveCart(cart);
-  updateCartCount();
-}
-
-/* ================= RENDER ================= */
-
-
 function renderCart() {
   const cartContainer = document.getElementById("cart-items");
   const subtotalElement = document.getElementById("cart-subtotal");
@@ -50,14 +24,23 @@ function renderCart() {
     const item = document.createElement("div");
     item.classList.add("cart-item");
 
+    const imagePath = product.image.startsWith("assets/")
+      ? product.image
+      : `assets/imagens/produtos/${product.image}`;
+
     item.innerHTML = `
       <div class="cart-left">
-        <img src="${product.image}" alt="${product.name}">
+        <img src="${imagePath}" alt="${product.name}">
       </div>
 
       <div class="cart-middle">
         <h3>${product.name}</h3>
-        <p class="cart-price">R$ ${product.price.toFixed(2)}</p>
+        <p class="cart-price">
+          ${Number(product.price).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+          })}
+        </p>
       </div>
 
       <div class="cart-right">
@@ -76,21 +59,28 @@ function renderCart() {
     cartContainer.appendChild(item);
   });
 
-  subtotalElement.textContent = `R$ ${subtotal.toFixed(2)}`;
-  totalElement.textContent = `R$ ${subtotal.toFixed(2)}`;
+  subtotalElement.textContent = subtotal.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+
+  totalElement.textContent = subtotal.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
 
   addCartEvents();
 }
-
-/* ================= EVENTOS  ================= */
 
 function addCartEvents() {
   document.querySelectorAll(".increase").forEach(button => {
     button.addEventListener("click", () => {
       let cart = getCart();
-      const id = button.dataset.id;
+      const id = Number(button.dataset.id);
 
-      const product = cart.find(p => p.id == id);
+      const product = cart.find(p => p.id === id);
+      if (!product) return;
+
       product.quantity++;
 
       saveCart(cart);
@@ -102,9 +92,10 @@ function addCartEvents() {
   document.querySelectorAll(".decrease").forEach(button => {
     button.addEventListener("click", () => {
       let cart = getCart();
-      const id = button.dataset.id;
+      const id = Number(button.dataset.id);
 
-      const product = cart.find(p => p.id == id);
+      const product = cart.find(p => p.id === id);
+      if (!product) return;
 
       if (product.quantity > 1) {
         product.quantity--;
@@ -118,31 +109,12 @@ function addCartEvents() {
 
   document.querySelectorAll(".remove-btn").forEach(button => {
     button.addEventListener("click", () => {
-      let cart = getCart();
-      const id = button.dataset.id;
-
-      cart = cart.filter(p => p.id != id);
-
-      saveCart(cart);
+      removeFromCart(Number(button.dataset.id));
       renderCart();
       updateCartCount();
     });
   });
 }
-
-/* ================= CONTADOR DE MENU  ================= */
-
-function updateCartCount() {
-  const cartCountElement = document.querySelector(".cart-count");
-  if (!cartCountElement) return;
-
-  const cart = getCart();
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-
-  cartCountElement.textContent = totalItems;
-}
-
-/* ================= INICIALIZAÇÃO  ================= */
 
 document.addEventListener("DOMContentLoaded", () => {
   renderCart();

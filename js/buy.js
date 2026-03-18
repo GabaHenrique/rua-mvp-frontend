@@ -1,20 +1,27 @@
-document.addEventListener("DOMContentLoaded", function () {
+function setupBuyButtons(products, redirectToCart = true) {
+  const buttons = document.querySelectorAll(".buy-btn");
 
-  document.querySelectorAll(".buy-btn").forEach(button => {
-    button.addEventListener("click", function () {
+  buttons.forEach(button => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-      const id = parseInt(this.dataset.id);
+      const id = Number(this.dataset.id);
       const product = products.find(p => p.id === id);
 
       if (!product) {
-        console.log("Produto não encontrado");
+        console.error("Produto não encontrado");
         return;
       }
 
       addToCart(product);
-      window.location.href = "carrinho.html";
+      updateCartCount();
 
+      if (redirectToCart) {
+        window.location.href = "carrinho.html";
+      } else {
+        alert(`${product.name} foi adicionado ao carrinho!`);
+      }
     });
   });
-
-});
+}

@@ -152,15 +152,11 @@
   
   document.addEventListener("DOMContentLoaded", async function () {
 
-  
-
   const container = document.querySelector(".products-grid");
-
   console.log(container);
 
   try {
     const response = await fetch("http://localhost:4000/products?category=banco");
-
     const products = await response.json();
 
     console.log("PRODUTOS:", products);
@@ -169,11 +165,11 @@
 
   const image = product.image 
     ? `assets/imagens/produtos/${product.image}` 
-    : `assets/imagens/produtos/cubocult.webp`;
+    : `assets/imagens/produtos/default.jpg`;
 
   return `
-    
-    <a href="produtoUnico.html?id=${product.id}" class="product-card">
+    <div class="product-card">
+    <a href="produtoUnico.html?id=${product.id}" class="product-link">
 
       <div class="product-image">
         <img src="${image}" alt="${product.name}">
@@ -186,12 +182,12 @@
           style: "currency",
           currency: "BRL"
         })}
-      </p>
-<button class="buy-btn">
+      </p></a>
+<button class="buy-btn" data-id"${product.id}>
         COMPRAR
       </button>
-    </a>
-
+    
+</div>
   `;
 
 }).join('');

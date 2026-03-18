@@ -77,14 +77,26 @@
     <!-- GALERIA -->
     <div class="product-gallery">
       <div class="main-image">
-        <img id="mainProductImage" src="assets/imagens/produtos/cultbike.webp">
+        <img id="mainProductImage" src="" alt="">
       </div>
     </div>
 
     <!-- DETALHES DINÂMICOS -->
-    <div class="product-detail">
-      <div id="productDetail"></div>
+    <section class="product-page">
+  <div class="product-layout">
+
+    <div class="product-gallery">
+      <div class="main-image">
+        <img id="mainProductImage" src="" alt="">
+      </div>
     </div>
+
+    <div class="product-details" id="productDetail">
+      <!-- JS vai preencher -->
+    </div>
+
+  </div>
+</section>
 
   </div>
 </section>
@@ -138,9 +150,9 @@
 
 <!-- SCRIPT -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  // MENU
+  document.addEventListener("DOMContentLoaded", function () {
+
   const menuToggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu");
 
@@ -151,24 +163,20 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".submenu-toggle").forEach(button => {
     button.addEventListener("click", function (e) {
       e.stopPropagation();
-      this.nextElementSibling.classList.toggle("active");
+      const submenu = this.nextElementSibling;
+      submenu.classList.toggle("active");
     });
   });
 
-  // PEGAR ID DA URL
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
-
-  console.log("ID do produto:", id);
-
 });
 
+  // PEGAR ID DA URL
+ 
 document.addEventListener("DOMContentLoaded", async function () {
-
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  console.log("ID do produto:", id);
+  console.log("ID da URL:", id);
 
   if (!id) {
     console.error("ID não encontrado na URL");
@@ -181,33 +189,45 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     console.log("Produto recebido:", product);
 
-    const container = document.getElementById("productDetail");
+    const detailContainer = document.getElementById("productDetail");
+    const mainImage = document.getElementById("mainProductImage");
 
-    container.innerHTML = `
+    if (!detailContainer || !mainImage) {
+      console.error("Elementos da página não encontrados");
+      return;
+    }
+
+    const imagePath = product.image
+      ? `assets/imagens/produtos/${product.image}`
+      : `assets/imagens/produtos/default.jpg`;
+
+    mainImage.src = imagePath;
+    mainImage.alt = product.name;
+
+    detailContainer.innerHTML = `
       <h1 class="product-title">${product.name}</h1>
 
-      
-      <p>${product.description || "Sem descrição"}</p>
-
       <p class="product-price">
-        R$ ${Number(product.price).toFixed(2)}
+        ${Number(product.price).toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL"
+        })}
       </p>
 
+      <p class="product-description">
+        ${product.description || "Sem descrição"}
+      </p>
 
-      <button class="buy-btn">
-        COMPRAR
+      <button class="buy-btn" data-id="${product.id}">
+        Comprar
       </button>
     `;
 
-    Number(product.price).toLocaleString("pt-BR", {
-  style: "currency",
-  currency: "BRL"
-})
+    setupBuyButtons([product], true);
 
   } catch (error) {
-    console.error("Erro ao buscar produto:", error);
+    console.error("Erro ao carregar produto:", error);
   }
-
 });
 </script>
 
