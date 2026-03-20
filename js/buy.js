@@ -1,6 +1,12 @@
 function setupBuyButtons(products, redirectToCart = false) {
   const buttons = document.querySelectorAll(".buy-btn");
 
+if (!buttons.length) {
+    console.warn("Nenhum botão .buy-btn encontrado.");
+    return;
+  }
+
+
   buttons.forEach(button => {
     button.addEventListener("click", function (e) {
       e.preventDefault();
@@ -19,9 +25,7 @@ function setupBuyButtons(products, redirectToCart = false) {
 
       if (redirectToCart) {
         window.location.href = "carrinho.html";
-      } else {
-        alert(`${product.name} foi adicionado ao carrinho!`);
-      }
+      } 
     });
   });
 }

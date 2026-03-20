@@ -138,11 +138,11 @@ async function checkout() {
     updateCartCount();
     renderCart();
 
-    alert("Pedido finalizado com sucesso!");
+    
 
   } catch (error) {
     console.error("Erro no checkout:", error);
-    alert("Não foi possível finalizar a compra.");
+    
   }
 }
 
