@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INDEX - Rua Bike Shop</title>
+  <title>Pedido realizado</title>
   <link rel="stylesheet" href="css/style.css">
-  
 </head>
 <body>
 
-<!-- HEADER -->
+    <!-- HEADER -->
  <header class="header">
   <div class="container">
 <div class="left">  
@@ -66,38 +65,14 @@
     <h2>FRETE GRÁTIS PARA TODO O BRASIL</h2>
     <p>Parcele suas compras em até 12x</p>
   </section>
- 
-  <!-- PRODUTOS -->
 
-<section class="products">
-  <div class="products-grid"> </section>
+  <main style="padding: 80px 20px; text-align: center;">
+    <h1>Pedido realizado com sucesso! ✅</h1>
+    <p>Seu pedido foi registrado no sistema.</p>
+    <a href="index.html">Voltar para a loja</a>
+  </main>
 
-
-
-  <!-- INSTAGRAAAM  -->
-<section class="instagram">
-  <div class="insta-container">
-
-    <h2>Siga nosso Instagram</h2>
-    <p>@ruabikeshop</p>
-
-    <div class="insta-grid">
-      <img src="assets/imagens/bmx-mwn1tj6tdjc43leo.jpg" alt="Instagram 1">
-      <img src="assets/imagens/Garrett-Reynolds_Back_dubs-fakie-hardwhip.webp" alt="Instagram 2">
-      <img src="assets/imagens/bmx-mwn1tj6tdjc43leo.jpg" alt="Instagram 3">
-      <img src="assets/imagens/Garrett-Reynolds_Back_dubs-fakie-hardwhip.webp" alt="Instagram 4">
-    </div>
-
-    <a href="https://instagram.com/ruabikeshop" target="_blank" class="insta-btn">
-      Seguir no Instagram
-    </a>
-
-  </div>
-</section>
-
-
-
-
+</body>
 <!--------------- FOOTER------------------------  -->
   
 
@@ -144,92 +119,6 @@
     <p>© 2026 Rua Bike Shop - Todos os direitos reservados</p>
   </div>
 
-</footer>
-      <!-- SCRIPTS -->
-<!-- SEU JS PRINCIPAL (menu etc) -->
-<script src="js/stateCar.js"></script>
-<script src="js/javascript.js"></script>
-<script src="js/products.js"></script>
-<script src="js/buy.js"></script>
+  <script src="js/javascript.js"></script>
+</html>
 
-<!-- SCRIPT DA PÁGINA -->
-<script>
-
-  document.addEventListener("DOMContentLoaded", function () {
-
-  const menuToggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("menu");
-
-  menuToggle.addEventListener("click", function () {
-    menu.classList.toggle("active");
-  });
-
-  document.querySelectorAll(".submenu-toggle").forEach(button => {
-    button.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const submenu = this.nextElementSibling;
-      submenu.classList.toggle("active");
-    });
-  });
-
-});
-
-  
-  document.addEventListener("DOMContentLoaded", async function () {
-
-  
-
-  const container = document.querySelector(".products-grid");
-
-  console.log(container);
-
-  try {
-    const response = await fetch("http://localhost:4000/products?category=banco");
-
-    const products = await response.json();
-
-    console.log("PRODUTOS:", products);
-
-    container.innerHTML = products.map(product => {
-
-  const image = product.image 
-    ? `assets/imagens/produtos/${product.image}` 
-    : `assets/imagens/produtos/cubocult.webp`;
-
-  return `
-    <div class="product-card">
-    <a href="produtoUnico.html?id=${product.id}" class="product-link">
-      <div class="product-image">
-        <img src="${image}" alt="${product.name}">
-      </div>
-
-      <h3 class="product-name">${product.name}</h3>
-
-      <p class="product-price">
-        ${Number(product.price).toLocaleString("pt-BR", {
-          style: "currency",
-          currency: "BRL"
-        })}
-      </p>
-    </a>
-
-    <button class="buy-btn" data-id="${product.id}">
-      Comprar
-    </button>
-
-  </div>
-  `;
-
-}).join('');
-setupBuyButtons(products);
-  } catch (error) {
-    console.error("Erro:", error);
-  }
-
-});
-</script>
-
-<script src="js/javascript.js"></script>
-<script src="js/products.js"></script>
-
-</body>
