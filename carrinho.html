@@ -25,9 +25,11 @@
         <button class="search-btn">🔍</button>
       </div>
 
-      <button class="cart-btn">
-        🛒 <span class="cart-count">0</span>
-      </button>
+   <a href="../pages/carrinho.html" class="cart-icon-container">
+  <span class="cart-icon">🛒</span>
+  <span class="cart-count">0</span>
+</a>
+      
 
       <nav class="menu" id="menu">
         <ul>
@@ -66,47 +68,36 @@
   <p>Parcele suas compras em até 12x</p>
 </section>
 
+<section class="cart-container">
+  <h1 class="cart-title">Seu Carrinho</h1>
 
+  <div class="cart-content">
 
+    <div class="cart-items" id="cart-items"></div>
 
+    <div class="cart-summary">
+      <h2>Resumo do Pedido</h2>
 
-  <div class="cart-container">
-
-    <h1 class="cart-title">Seu Carrinho</h1>
-    
-
-    <div class="cart-content">
-
-      <!-- Lista de Produtos -->
-             <div class="cart-items" id="cart-items">
-                 
-        <!-- Produtos serão inseridos aqui via JS -->
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">R$ 0,00</span>
       </div>
 
-      <!-- Resumo -->
-      <div class="cart-summary">
-
-        <h2>Resumo do Pedido</h2>
-
-        <div class="summary-row">
-          <span>Subtotal</span>
-          <span id="cart-subtotal">R$ 0,00</span>
-        </div>
-
-        <div class="summary-row total-row">
-          <span>Total</span>
-          <span id="cart-total">R$ 0,00</span>
-        </div>
-
-        <button class="checkout-btn">
-          Finalizar Compra
-        </button>
-
+      <div class="summary-row total-row">
+        <span>Total</span>
+        <span id="cart-total">R$ 0,00</span>
       </div>
+
+      <button class="checkout-btn" id="checkout-btn">
+        Finalizar Compra
+      </button>
 
     </div>
 
   </div>
+</section>
+
+
 
 
 <!--------------- FOOTER------------------------  -->
@@ -158,16 +149,11 @@
 </footer>
 
  <!-- SCRIPT SEMPRE AQUI EMBAIXO -->
-      <script>
 
-        
-
-
-</script>
-
-<script src="js/produtos.js"></script>
+  
+<script src="js/stateCar.js"></script>
+<script src="js/javascript.js"></script>
 <script src="js/carrinho.js"></script>
-<script src="js/menu.js"></script>
 
 </body>
 </html>

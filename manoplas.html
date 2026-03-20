@@ -23,16 +23,17 @@
       <button class="search-btn">🔍</button>
 
 </div>
-    <button class="cart-btn">
-  🛒 <span class="cart-count">0</span>
-</button>
+    <a href="carrinho.html" class="cart-icon-container">
+  <span class="cart-icon">🛒</span>
+  <span class="cart-count">0</span>
+</a>
   
   <nav class="menu" id="menu">
     <ul>
       <li><a href="index.html">Inicio</a></li>
       <li class="has-submenu">
       <button class="submenu-toggle">
-        Produtos ▾
+        Produtos ▾ 
       </button>
 
       <ul class="submenu">
@@ -42,7 +43,6 @@
         <li><a href="manoplas.html">Manoplas</a></li>
         <li><a href="pedais.html">Pedais</a></li>
         <li><a href="quadros.html">Quadros</a></li>
-     
       </ul>
     </li>
       <li><a href="carrinho.html">Carrinho</a></li></ul></nav>
@@ -120,14 +120,14 @@
 
 </footer>
 
-<!-- SCRIPTS -->
-<!-- SEU JS PRINCIPAL (menu etc) -->
-<script src="js/javascript.js"></script>
 
-<!-- NOVO ARQUIVO DE PRODUTOS -->
-<script src="js/products.js"></script>
 
 <!-- SCRIPT DA PÁGINA -->
+ <script src="js/stateCar.js"></script>
+<script src="js/javascript.js"></script>
+<script src="js/products.js"></script>
+<script src="js/buy.js"></script>
+
 <script>
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -173,7 +173,7 @@
 
   return `
     
-   <div class="product-card">
+    <div class="product-card">
     <a href="produtoUnico.html?id=${product.id}" class="product-link">
       <div class="product-image">
         <img src="${image}" alt="${product.name}">
@@ -196,8 +196,10 @@
   </div>
   `;
 
+  
 
 }).join('');
+setupBuyButtons(products);
 
   } catch (error) {
     console.error("Erro:", error);
@@ -206,7 +208,12 @@
 });
 </script>
 
+
+</body>
+
+</script>
 <script src="js/javascript.js"></script>
 <script src="js/products.js"></script>
+
 
 </body>

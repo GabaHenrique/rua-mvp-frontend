@@ -1,4 +1,4 @@
-function setupBuyButtons(products, redirectToCart = true) {
+function setupBuyButtons(products, redirectToCart = false) {
   const buttons = document.querySelectorAll(".buy-btn");
 
   buttons.forEach(button => {

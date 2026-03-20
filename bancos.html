@@ -24,9 +24,10 @@
       <button class="search-btn">🔍</button>
 
 </div>
-    <button class="cart-btn">
-  🛒 <span class="cart-count">0</span>
-</button>
+   <a href="carrinho.html" class="cart-icon-container">
+  <span class="cart-icon">🛒</span>
+  <span class="cart-count">0</span>
+</a>
   
   <nav class="menu" id="menu">
     <ul>
@@ -122,15 +123,16 @@
 
 <!-- SCRIPTS -->
 <!-- SEU JS PRINCIPAL (menu etc) -->
+<script src="js/stateCar.js"></script>
 <script src="js/javascript.js"></script>
-
-<!-- NOVO ARQUIVO DE PRODUTOS -->
 <script src="js/products.js"></script>
+<script src="js/buy.js"></script>
 
 <!-- SCRIPT DA PÁGINA -->
 <script>
 
   document.addEventListener("DOMContentLoaded", function () {
+    
 
   const menuToggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu");
@@ -158,19 +160,20 @@
   try {
     const response = await fetch("http://localhost:4000/products?category=banco");
     const products = await response.json();
+    console.log("RESPOSTA BRUTA:", products);
 
-    console.log("PRODUTOS:", products);
+    
 
     container.innerHTML = products.map(product => {
 
   const image = product.image 
     ? `assets/imagens/produtos/${product.image}` 
-    : `assets/imagens/produtos/default.jpg`;
+    : `assets/imagens/produtos/cubocult.webp`;
 
   return `
+    
     <div class="product-card">
     <a href="produtoUnico.html?id=${product.id}" class="product-link">
-
       <div class="product-image">
         <img src="${image}" alt="${product.name}">
       </div>
@@ -182,15 +185,20 @@
           style: "currency",
           currency: "BRL"
         })}
-      </p></a>
-<button class="buy-btn" data-id"${product.id}>
-        COMPRAR
-      </button>
-    
-</div>
+      </p>
+    </a>
+
+    <button class="buy-btn" data-id="${product.id}">
+      Comprar
+    </button>
+
+  </div>
   `;
 
+  
+
 }).join('');
+setupBuyButtons(products);
 
   } catch (error) {
     console.error("Erro:", error);
@@ -199,7 +207,14 @@
 });
 </script>
 
+
+</body>
+
+
+<script src="js/stateCar.js"></script>
 <script src="js/javascript.js"></script>
 <script src="js/products.js"></script>
+<script src="js/buy.js"></script>
+
 
 </body>
