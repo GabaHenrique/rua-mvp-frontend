@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Produto - Admin Rua Bike Shop</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <aside class="sidebar">
+      <h2>Admin</h2>
+
+      <nav>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="orders.html">Pedidos</a></li>
+          <li><a href="products.html">Produtos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="admin-content">
+      <div class="page-header">
+        <h1 id="form-title">Novo Produto</h1>
+        <a href="products.html" class="edit-btn">Voltar</a>
+      </div>
+
+      <section class="product-form-section">
+        <form id="product-form" class="product-form">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Descrição</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Preço</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+          </div>
+
+          <div class="form-group">
+            <label for="stock">Estoque</label>
+            <input type="number" id="stock" name="stock" required>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Categoria</label>
+            <select id="category" name="category" required>
+              <option value="">Selecione uma categoria</option>
+              <option value="bike">Bike</option>
+              <option value="banco">Banco</option>
+              <option value="cubo">Cubo</option>
+              <option value="manopla">Manopla</option>
+              <option value="pedal">Pedal</option>
+              <option value="quadro">Quadro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Imagem (nome do arquivo)</label>
+            <input type="text" id="image" name="image" placeholder="ex: cubo-cult.jpg">
+          </div>
+
+          <button type="submit" id="submit-btn" class="new-product-btn">
+            Salvar Produto
+          </button>
+
+          <p id="form-message" class="login-message"></p>
+        </form>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="js/productForm.js"></script>
+</body>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Coluna 1 -->
+    <div class="footer-col logo-col">
+      <img src="../assets/imagens/rualogo 2026.PNG" alt="Logo Rua">
+    </div>
+
+    <!-- Coluna 2 -->
+    <div class="footer-col">
+      <h3>MAPA DO SITE</h3>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Loja</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3 -->
+    <div class="footer-col">
+      <h3>POLÍTICAS</h3>
+      <ul>
+        <li><a href="#">Política de Privacidade</a></li>
+        <li><a href="#">Política de Entrega</a></li>
+        <li><a href="#">Política de Pagamento</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 4 -->
+    <div class="footer-col payment-col">
+      <h3>FORMAS DE PAGAMENTO</h3>
+      <div class="payments">
+            <img src="../assets/imagens/mercadopago.png" alt="Logo Rua">
+           </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Rua Bike Shop - Todos os direitos reservados</p>
+  </div>
+
+</footer>
+</html>
