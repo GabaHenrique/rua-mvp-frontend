@@ -1,6 +1,6 @@
-// 🔥 busca produtos do backend
+//  busca produtos do backend
 async function getProducts() {
-  const response = await fetch("http://localhost:4000/products?category=cubo");
+  const response = await fetch("http://localhost:4000/products?category=cubos");
   
   if (!response.ok) {
 

@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function getFeaturedProductsByCategory(products) {
   const categories = [
-    "bike",
-    "banco",
-    "cubo",
-    "manopla",
-    "pedal",
-    "quadro"
+    "bikes",
+    "bancos",
+    "cubos",
+    "manoplas",
+    "pedais",
+    "quadros"
   ];
 
   const featured = [];
@@ -77,7 +77,7 @@ function renderHomeProducts(products, container) {
 
   container.innerHTML = products.map(product => {
     const image = product.image
-      ? `assets/imagens/produtos/${product.image}`
+      ? product.image
       : `assets/imagens/produtos/default.jpg`;
 
     return `

@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     const imagePath = product.image
-      ? `assets/imagens/produtos/${product.image}`
+      ? product.image
       : `assets/imagens/produtos/default.jpg`;
 
     mainImage.src = imagePath;

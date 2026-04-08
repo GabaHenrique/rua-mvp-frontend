@@ -159,7 +159,7 @@
   console.log(container);
 
   try {
-    const response = await fetch("http://localhost:4000/products?category=bikecompleta");
+    const response = await fetch("http://localhost:4000/products?category=bikes");
 
     const products = await response.json();
 
@@ -168,7 +168,7 @@
     container.innerHTML = products.map(product => {
 
   const image = product.image 
-    ? `assets/imagens/produtos/${product.image}` 
+    ?  product.image 
     : `assets/imagens/produtos/cubocult.webp`;
 
   return `
