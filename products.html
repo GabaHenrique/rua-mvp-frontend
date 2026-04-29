@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INDEX - Rua Bike Shop</title>
+  <title>PRODUTOS - Rua Bike Shop</title>
   <link rel="stylesheet" href="css/style.css">
   
 </head>
 <body>
 
-<!----------------------------------------- MENU E SUBMENU  ------------------------------------------------------------------->
-
+<!-- HEADER -->
  <header class="header">
   <div class="container">
 <div class="left">  
@@ -22,39 +21,42 @@
 
 <div class="right">
 <div class="search-wrapper">
-      <button class="search-btn">🔍</button>
+      <button class="search-btn">🔍</button></div>
 
-</div>
-    <a href="carrinho.html" class="cart-icon-container">
+
+   <a href="../carrinho.html" class="cart-icon-container">
   <span class="cart-icon">🛒</span>
   <span class="cart-count">0</span>
 </a>
   
-  <nav class="menu" id="menu">
+
+<nav class="menu" id="menu">
     <ul>
-      <li><a href="index.html">Inicio</a></li>
+      <li><a href="/index.html">Inicio</a></li>
       <li class="has-submenu">
       <button class="submenu-toggle">
         Produtos ▾
       </button>
 
+
       <ul class="submenu">
-<li><a href="products.html?category=bikes">Bikes</a></li>
-<li><a href="products.html?category=bancos">Bancos</a></li>
-<li><a href="products.html?category=cubos">Cubos</a></li>
-<li><a href="products.html?category=manoplas">Manoplas</a></li>
-<li><a href="products.html?category=pedais">Pedais</a></li>
-<li><a href="products.html?category=quadros">Quadros</a></li>
-     
-      </ul>
-    </li>
+  <li><a href="products.html?category=bikes">Bikes Completas</a></li>
+  <li><a href="products.html?category=bancos">Bancos</a></li>
+  <li><a href="products.html?category=cubos">Cubos</a></li>
+  <li><a href="products.html?category=manoplas">Manoplas</a></li>
+  <li><a href="products.html?category=pedais">Pedais</a></li>
+  <li><a href="products.html?category=quadros">Quadros</a></li>
+
+</ul></li>
+
+
       <li><a href="carrinho.html">Carrinho</a></li></ul></nav>
      
-      <div class="header-icons"></div>
+      <div class="header-icons">
             </header>
     
 
-  <!---------------------------------------------------------------- BANNER INTERNO --------------------------------------------->
+  <!-- BANNER INTERNO -->
   <section class="banner">
   
   <div class="slider">
@@ -63,22 +65,22 @@
       <img src="assets/imagens/produtos/bsd-banner-bikecheck-joefoley-003-jan2025_1900x.webp" alt="Produto 1">
     </div> </section>
 
-      <section class="banner-text">
-    <h2>FRETE GRÁTIS PARA TODO O BRASIL</h2>
-    <p>Parcele suas compras em até 12x</p>
-  </section>
- 
-  <!-- PRODUTOS -->
+    <section class="banner-text">
+  <h2>FRETE GRÁTIS PARA TODO O BRASIL </h2>
+  <p>Parcele suas compras em até 12x</p>
+</section>
 
-<section class="products">
-  <h2 class="section-title">PRODUTOS EM DESTAQUE</h2>
-  <div class="products-grid" id="home-products"></div>
+<!---------------PRODUTOS------------------>
+ 
+<div class="products-grid">
+  <!-- storeProducts VAI RENDERIZAR AQUI -->
+
+</div>
+  </div>
 </section>
 
 
-
-  <!--------------------------------------------------------------- INSTAGRAAAM  ----------------------------------------------------->
-
+  <!-- INSTAGRAAAM  -->
 <section class="instagram">
   <div class="insta-container">
 
@@ -100,12 +102,9 @@
 </section>
 
 
-
-
-<!---------------------------------------------------------- FOOTER-----------------------------------------------------  -->
-  
-
+<!------------------------------------------------------------ FOOTER ---------------------------------------------->
   <footer class="footer">
+
   <div class="footer-container">
 
     <!-- Coluna 1 -->
@@ -150,36 +149,18 @@
 
 </footer>
 
+      <!--------------------------------------------------------------- SCRIPT  ---------------------------------------------------------->
+           
 
-      <!----------------------------------------------------------- SCRIPTS ----------------------------------------------------->
+</script>
 
+<!-- SCRIPTS -->
 <script src="js/main.js"></script> 
+<script src="js/config.js"></script>
 <script src="js/stateCar.js"></script>
+<script src="js/storeProducts.js"></script>
 <script src="js/buy.js"></script>
-<script src="js/indexProducts.js"></script>
 
-</body>
+</body> 
 </html>
-
-<script>
-
-("DOMContentLoaded", function () {
-    
-
-  const menuToggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("menu");
-
-  menuToggle.addEventListener("click", function () {
-    menu.classList.toggle("active");
-  });
-
-  document.querySelectorAll(".submenu-toggle").forEach(button => {
-    button.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const submenu = this.nextElementSibling;
-      submenu.classList.toggle("active");
-    });
-  });
-
-});
 

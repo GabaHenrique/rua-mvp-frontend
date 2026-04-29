@@ -20,7 +20,7 @@
 
       <div class="logo"> <a href="index.html">
     <img src="assets/imagens/Logo transparente - Cópia.png" alt="Logo"></div>    
-</div></a>
+      </a></div>
 
 
     <div class="right">
@@ -39,13 +39,13 @@
           <li class="has-submenu">
             <button class="submenu-toggle">Produtos ▾</button>
 
-            <ul class="submenu">
-       <li><a href="bikesCompletas.html">Bikes Completas</a></li>
-        <li><a href="bancos.html">Bancos</a></li>
-        <li><a href="cubos.html">Cubos</a></li>
-        <li><a href="manoplas.html">Manoplas</a></li>
-        <li><a href="pedais.html">Pedais</a></li>
-        <li><a href="quadros.html">Quadros</a></li>
+             <ul class="submenu">
+<li><a href="products.html?category=bikes">Bikes</a></li>
+<li><a href="products.html?category=bancos">Bancos</a></li>
+<li><a href="products.html?category=cubos">Cubos</a></li>
+<li><a href="products.html?category=manoplas">Manoplas</a></li>
+<li><a href="products.html?category=pedais">Pedais</a></li>
+<li><a href="products.html?category=quadros">Quadros</a></li>
      
       </ul>
     </li>
@@ -147,31 +147,15 @@
 </footer>
 
 <!-- SCRIPT -->
-
-<script src="js/stateCar.js"></script>
-<script src="js/javascript.js"></script>
-<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/config.js"></script>
+<script src="js/storeProducts.js"></script> 
 <script src="js/buy.js"></script>
+<script src="js/stateCar.js"></script>
+
 <script>
 
-  document.addEventListener("DOMContentLoaded", function () {
 
-  const menuToggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("menu");
-
-  menuToggle.addEventListener("click", function () {
-    menu.classList.toggle("active");
-  });
-
-  document.querySelectorAll(".submenu-toggle").forEach(button => {
-    button.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const submenu = this.nextElementSibling;
-      submenu.classList.toggle("active");
-    });
-  });
-
-});
 
   // PEGAR ID DA URL
  
@@ -187,7 +171,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   try {
-    const response = await fetch(`http://localhost:4000/products/${id}`);
+    const response = await fetch(`http://localhost:4001/products/${id}`);
     const product = await response.json();
 
     console.log("Produto recebido:", product);
@@ -236,6 +220,5 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 </body>
 
-<script src="js/javascript.js"></script>
-<script src="js/products.js"></script>
+
 </html>

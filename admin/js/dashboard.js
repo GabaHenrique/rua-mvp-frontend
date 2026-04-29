@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("http://localhost:4000/admin/dashboard");
+    const response = await fetch("http://localhost:4001/admin/dashboard");
     const data = await response.json();
 
     console.log("Dados do dashboard:", data);

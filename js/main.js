@@ -23,24 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  /* BUSCA */
-  if (searchBtn) {
-    searchBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      searchWrapper.classList.toggle("active");
 
-      if (searchWrapper.classList.contains("active")) {
-        searchInput.focus();
-      }
-    });
+
+document.addEventListener("click", function (e) {
+  const isClickInsideMenu = menu.contains(e.target);
+  const isClickToggle = menuToggle.contains(e.target);
+
+  if (!isClickInsideMenu && !isClickToggle) {
+    menu.classList.remove("active");
   }
-
-  document.addEventListener("click", function () {
-    if (menu) menu.classList.remove("active");
-    if (searchWrapper) searchWrapper.classList.remove("active");
-  });
-
-  /* BOTÕES COMPRAR */
+});
+ 
   
 
 });

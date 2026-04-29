@@ -123,7 +123,7 @@ async function checkout() {
   };
 
   try {
-    const response = await fetch("http://localhost:4000/orders", {
+    const response = await fetch("http://localhost:4001/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

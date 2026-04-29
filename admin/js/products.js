@@ -1,3 +1,5 @@
+console.log("API_URL:", API_URL);
+
 const token = localStorage.getItem("adminToken");
 
 if (!token) {
@@ -14,7 +16,7 @@ async function loadProducts() {
   if (!productsList) return;
 
   try {
-    const response = await fetch("http://localhost:4000/products");
+    const response = await fetch("http://localhost:4001/products");
     const products = await response.json();
 
     console.log("Produtos carregados no admin:", products);
@@ -95,7 +97,7 @@ async function deleteProduct(productId) {
       return;
     }
 
-    const response = await fetch(`http://localhost:4000/products/${productId}`, {
+    const response = await fetch(`http://localhost:4001/products/${productId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

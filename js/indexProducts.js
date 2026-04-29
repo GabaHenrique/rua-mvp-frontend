@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!container) return;
 
   try {
-    const response = await fetch("http://localhost:4000/products");
+    const response = await fetch("http://localhost:4001/products");
     const products = await response.json();
 
     const productsArray = Array.isArray(products) ? products : products.products;
@@ -53,11 +53,11 @@ function getFeaturedProductsByCategory(products) {
     }
   });
 
-  // completa até 4 produtos, se necessário
-  if (featured.length < 4) {
+  // completa até 3 produtos, se necessário
+  if (featured.length < 3) {
     const remainingProducts = products.filter(product => !usedIds.has(product.id));
 
-    while (featured.length < 4 && remainingProducts.length > 0) {
+    while (featured.length < 3 && remainingProducts.length > 0) {
       const randomIndex = Math.floor(Math.random() * remainingProducts.length);
       const selectedProduct = remainingProducts.splice(randomIndex, 1)[0];
 
