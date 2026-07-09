@@ -102,7 +102,7 @@ async function handleSubmit(event) {
     );
 
     setTimeout(() => {
-      window.location.href = "products.html";
+      window.location.href = "productsAdmin.html";
     }, 1000);
 
   } catch (error) {

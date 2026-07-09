@@ -97,10 +97,13 @@ function setupStatusButtons() {
 
 async function updateOrderStatus(orderId, status) {
   try {
+    const token = localStorage.getItem("adminToken");
+
     const response = await fetch(`http://localhost:4001/orders/${orderId}/status`, {
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify({ status })
     });

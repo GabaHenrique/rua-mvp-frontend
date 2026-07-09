@@ -1,8 +1,8 @@
 document.getElementById("login-form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
 
   try {
     const response = await fetch("http://localhost:4001/admin/login", {

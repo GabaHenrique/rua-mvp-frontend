@@ -1,6 +1,24 @@
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("http://localhost:4001/admin/dashboard");
+    const token = localStorage.getItem("adminToken");
+
+    if (!token) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    const response = await fetch("http://localhost:4001/admin/dashboard", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    if (!response.ok) {
+      localStorage.removeItem("adminToken");
+      window.location.href = "login.html";
+      return;
+    }
+
     const data = await response.json();
 
     console.log("Dados do dashboard:", data);

@@ -1,5 +1,3 @@
-console.log("API_URL:", API_URL);
-
 const token = localStorage.getItem("adminToken");
 
 if (!token) {
