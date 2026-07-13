@@ -41,7 +41,7 @@ async function loadOrders() {
           ${order.items.map(item => `
             <div class="order-item">
               <img 
-                src="../assets/imagens/produtos/${item.image}" 
+                src="../${item.image}" 
                 alt="${item.product_name}"
                 class="order-item-image"
               >

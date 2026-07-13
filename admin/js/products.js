@@ -38,7 +38,7 @@ async function loadProducts() {
           <div class="products-table-row">
             <div class="product-image-cell">
               <img 
-                src="../assets/imagens/produtos/${product.image}" 
+                src="../${product.image}"" 
                 alt="${product.name}" 
                 class="product-thumb"
               >
