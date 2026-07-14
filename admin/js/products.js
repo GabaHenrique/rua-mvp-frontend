@@ -14,7 +14,7 @@ async function loadProducts() {
   if (!productsList) return;
 
   try {
-    const response = await fetch("http://localhost:4001/products");
+    const response = await fetch(`${API_URL}/products`);
     const products = await response.json();
 
     console.log("Produtos carregados no admin:", products);
@@ -95,7 +95,7 @@ async function deleteProduct(productId) {
       return;
     }
 
-    const response = await fetch(`http://localhost:4001/products/${productId}`, {
+    const response = await fetch(`${API_URL}/products/${productId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

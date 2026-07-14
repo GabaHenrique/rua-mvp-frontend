@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:4001";
+const API_URL = "https://backend-mvp-nodejs.onrender.com";
 
 // Esta função agora será global e acessível pelos outros scripts
 async function getProducts(category = "") {

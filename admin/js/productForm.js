@@ -29,7 +29,7 @@ function getProductIdFromUrl() {
 
 async function loadProductData(productId) {
   try {
-    const response = await fetch(`http://localhost:4001/products/${productId}`);
+    const response = await fetch(`${API_URL}/products/${productId}`);
     const product = await response.json();
 
     if (!response.ok) {
@@ -75,8 +75,8 @@ async function handleSubmit(event) {
 
     const response = await fetch(
       isEditing
-        ? `http://localhost:4001/products/${productId}`
-        : `http://localhost:4001/products`,
+       ? `${API_URL}/products/${productId}`
+       : `${API_URL}/products`,
       {
         method: isEditing ? "PUT" : "POST",
         headers: {

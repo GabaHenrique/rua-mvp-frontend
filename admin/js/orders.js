@@ -14,7 +14,7 @@ async function loadOrders() {
   if (!ordersList) return;
 
   try {
-    const response = await fetch("http://localhost:4001/orders/with-products");
+    const response = await fetch(`${API_URL}/orders/with-products`);
     const orders = await response.json();
 
     console.log("Pedidos carregados:", orders);
@@ -99,7 +99,7 @@ async function updateOrderStatus(orderId, status) {
   try {
     const token = localStorage.getItem("adminToken");
 
-    const response = await fetch(`http://localhost:4001/orders/${orderId}/status`, {
+    const response = await fetch(`${API_URL}/orders/${orderId}/status`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

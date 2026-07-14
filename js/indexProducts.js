@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!container) return;
 
   try {
-    const response = await fetch("http://localhost:4001/products");
+    const response = await fetch(`${API_URL}/products`);
     const products = await response.json();
 
     const productsArray = Array.isArray(products) ? products : products.products;
